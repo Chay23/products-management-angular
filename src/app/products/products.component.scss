@@ -1,0 +1,39 @@
+.content-header{
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: 55rem;
+    margin: 20px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+
+    label{
+        margin-left: 10px;
+    }
+}
+
+.products-list{
+    border: 1px solid black;
+    width: 55rem;
+    margin: 10px 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 0px 5px 0px;
+    p{
+        margin: 5px 5px;
+    }
+}
+
+.products-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 10px 5px 0px;
+    p{
+        margin: 5px 5px;
+    }
+}
