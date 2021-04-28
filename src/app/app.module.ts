@@ -2,21 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
-import { FilterPipe } from './products/filter.pipe';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductsComponent,
-    FilterPipe
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  declarations: [AppComponent, PageNotFoundComponent],
+  imports: [BrowserModule, FormsModule, ProductsModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
