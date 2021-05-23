@@ -16,9 +16,19 @@ export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
 
-  searchName: string = ''
+  searchName: string = '';
 
   getProducts(): void {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe((response) => {
+      this.products = response;
+    });
+  }
+
+  deleteProduct(id: number): void {
+    let result: boolean = confirm('Ви впевнені?');
+    if (result) {
+      this.productService.deleteProduct(id).subscribe();
+      window.location.reload();
+    }
   }
 }

@@ -1,18 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
-import { PRODUCTS } from './mock-products';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  getProducts(): Product[] {
-    return PRODUCTS;
+  constructor(private http: HttpClient) {}
+
+  url: string = 'http://localhost:3000/products';
+  length: number;
+
+  getProducts() {
+    return this.http.get<Product[]>(this.url);
   }
-  getProduct(id: number | string) {
-    return this.getProducts().find((product) => product.id == id);
+
+  getProduct(id: number) {
+    return this.http.get<Product>(this.url + '/' + id);
   }
-  addProduct(product : Product){
-    // implement addProducts
+
+  getProductId(): number {
+    this.getProducts().subscribe((response) => {
+      this.length = response.length + 1;
+    });
+    return this.length + 1;
+  }
+
+  addProduct(product: Product) {
+    return this.http.post(this.url, product);
+  }
+
+  editProduct(product: Product) {
+    return this.http.put(this.url + '/' + product.id, product);
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete(this.url + '/' + id);
   }
 }

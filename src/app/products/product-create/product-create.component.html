@@ -1,0 +1,16 @@
+<div class="product-create">
+  <h3>Створити продукт</h3>
+  <p>Назва</p>
+  <input [(ngModel)]="name" />
+  <p>Категорія</p>
+  <input [(ngModel)]="category" />
+  <p>Тип</p>
+  <input [(ngModel)]="type" />
+  <p>Кількість</p>
+  <input [(ngModel)]="amount" />
+  <p>Ціна</p>
+  <input [(ngModel)]="price" />
+  <br />
+  <button class="btn btn-success" (click)="addNewProduct()">Добавити</button>
+  <a class="btn btn-secondary" [routerLink]="['/products']">Назад</a>
+</div>

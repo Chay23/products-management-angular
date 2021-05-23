@@ -1,5 +1,17 @@
-<a [routerLink]="['/products']">Назад</a>
-<p>Ім'я: {{product.name}}</p>
-<p>Тип: {{product.type}}</p>
-<p>Кількість: {{product.amount}}</p>
-<p>Ціна: {{product.price}}₴</p>
+<div class="product" *ngIf="loaded">
+  <h3>Редагувати продукт</h3>
+  <p>Категорія</p>
+  <input [(ngModel)]="product.category" />
+  <p>Ім'я</p>
+  <input [(ngModel)]="product.name" />
+  <p>Тип</p>
+  <input [(ngModel)]="product.type" />
+  <p>Кількість</p>
+  <input [(ngModel)]="product.amount" />
+  <p>Ціна</p>
+  <input [(ngModel)]="product.price" />₴
+  <br />
+  <button class="btn btn-primary" (click)="updateProduct()">Редагувати</button>
+  <button class="btn btn-danger" (click)="deleteProduct()">Видалити</button>
+  <a class="btn btn-secondary" [routerLink]="['/products']">Назад</a>
+</div>

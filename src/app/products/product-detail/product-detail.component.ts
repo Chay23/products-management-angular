@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 
@@ -12,6 +11,14 @@ import { ProductService } from '../product.service';
 export class ProductDetailComponent implements OnInit {
   id: number;
   product: Product;
+  loaded: boolean = false;
+
+  category: string;
+  name: string;
+  type: string;
+  amount: number;
+  price: number;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -25,6 +32,21 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getProduct(): void {
-    this.product = this.productService.getProduct(this.id);
+    this.productService.getProduct(this.id).subscribe((response) => {
+      this.product = response;
+      this.loaded = true;
+    });
+  }
+
+  updateProduct(): void {
+    this.productService.editProduct(this.product).subscribe();
+  }
+
+  deleteProduct(): void {
+    let result: boolean = confirm('Ви впевнені?');
+    if (result) {
+      this.productService.deleteProduct(this.id).subscribe();
+      this.router.navigate(['/products']);
+    }
   }
 }
