@@ -1,0 +1,28 @@
+<div class="content-header">
+  <button class="btn btn-info btn-sm" [routerLink]="['/create']">
+    Добавити новий продукт
+  </button>
+  <label>Пошук<input [(ngModel)]="searchName" /></label>
+</div>
+<div class="products-list">
+  <div class="products-header">
+    <p>Id</p>
+    <p>Ім'я</p>
+    <p>Тип</p>
+    <p>Кількість</p>
+    <p>Ціна</p>
+  </div>
+  <div class="product" *ngFor="let product of products | filter: searchName">
+    <p>{{ product.id }}</p>
+    <p>{{ product.name }}</p>
+    <p>{{ product.type }}</p>
+    <p>{{ product.amount }}</p>
+    <p>{{ product.price }}₴</p>
+    <a class="btn btn-primary btn-sm" [routerLink]="['/products', product.id]"
+      >Редагувати</a
+    >
+    <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">
+      Видалити
+    </button>
+  </div>
+</div>

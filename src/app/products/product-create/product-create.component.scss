@@ -1,0 +1,5 @@
+@import "../../../styles.scss";
+
+.product-create {
+  @include product-element;
+}

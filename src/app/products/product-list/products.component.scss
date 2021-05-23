@@ -1,0 +1,58 @@
+.content-header {
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgb(109, 109, 109);
+  width: 70rem;
+  margin: 20px 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+
+  label {
+    margin-left: 50px;
+  }
+
+  input {
+    margin: 5px;
+  }
+}
+
+.products-list {
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgb(109, 109, 109);
+  width: 70rem;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 50px 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 5px;
+  p {
+    margin: 5px;
+  }
+
+  a {
+    margin: 5px;
+  }
+
+  button {
+    margin: 5px;
+  }
+}
+
+.product:nth-child(odd) {
+  background-color: rgb(221, 221, 221);
+}
+
+.products-header {
+  display: grid;
+  grid-template-columns: 50px 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 10px 5px 0px;
+  p {
+    margin: 5px 5px;
+  }
+}
